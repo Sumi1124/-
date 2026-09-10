@@ -22,6 +22,7 @@ jobs:
       - name: Build (Release, universal, unsigned)
         run: |
           set -o pipefail
+          mkdir -p build
           xcodebuild \
             -project SourceDesk.xcodeproj \
             -scheme SourceDesk \
@@ -33,6 +34,8 @@ jobs:
             CODE_SIGNING_ALLOWED=NO \
             CODE_SIGN_IDENTITY="" \
             build 2>&1 | tee build/xcodebuild.log
+          echo "--- build tail ---"
+          tail -40 build/xcodebuild.log
           test -d "build/Build/Products/Release/SourceDesk.app"
 
       - name: Upload build log
@@ -41,7 +44,7 @@ jobs:
         with:
           name: build-log
           path: build/xcodebuild.log
-          if-no-files-found: error
+          if-no-files-found: warn
 
       - name: Package DMG
         run: |
