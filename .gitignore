@@ -1,0 +1,28 @@
+# Swift / Xcode
+.DS_Store
+/build/
+/DerivedData/
+*.xcuserstate
+xcuserdata/
+*.xccheckout
+*.moved-aside
+*.swp
+*.swo
+*.tmp
+
+# Swift Package Manager
+.build/
+.swiftpm/
+
+# Local builds
+SourceDesk.app/
+*.dSYM
+
+# Secrets — never commit API keys
+.env
+.env.local
+
+# IDE
+.idea/
+.vscode/
+*.xcworkspace/xcuserdata/
