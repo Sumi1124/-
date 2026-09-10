@@ -1,8 +1,8 @@
 # SourceDesk
 
-| Download source | Build |
-|---|---|
-| [![Download ZIP](https://img.shields.io/badge/⬇️_Download_ZIP-black?style=for-the-badge&logo=github)](https://github.com/Sumi1124/-/archive/refs/heads/main.zip) | `git clone https://github.com/Sumi1124/-.git` |
+| Download source | Download app | Build |
+|---|---|---|
+| [![Download ZIP](https://img.shields.io/badge/⬇️_Download_ZIP-black?style=for-the-badge&logo=github)](https://github.com/Sumi1124/-/archive/refs/heads/main.zip) | [![Latest release](https://img.shields.io/badge/⬇️_Get_the_app-blue?style=for-the-badge&logo=apple)](https://github.com/Sumi1124/-/releases/latest) | [![Build status](https://github.com/Sumi1124/-/actions/workflows/build.yml/badge.svg)](https://github.com/Sumi1124/-/actions/workflows/build.yml) |
 
 A local-first AI research notebook for macOS. Collect sources — websites, PDFs,
 text, Markdown, DOCX — store everything on your Mac, and ask questions grounded
@@ -31,6 +31,17 @@ in your research with citations.
   pasted text in any quantity.
 - **Import / export.** Notebooks export to a documented `.zip` archive and can
   be imported back on the same or another Mac.
+
+## Download the app
+
+Ready-to-run builds are attached to every tagged **Release**, and a fresh
+unsigned build is produced on demand via **Actions → Build SourceDesk → Run
+workflow**. Grab the `.dmg`, mount it, and drag `SourceDesk` into
+/Applications.
+
+> The app is unsigned (open-source, no paid Developer ID), so macOS asks the
+> first time: **right-click `SourceDesk` → Open** instead of double-clicking.
+> Everything else works like a normal installed Mac app.
 
 ## Requirements
 
