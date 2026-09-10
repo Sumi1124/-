@@ -14,10 +14,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Show Xcode version
+      - name: Pre-build diagnostics
         run: |
+          echo "=== Xcode version ==="
           xcodebuild -version
+          echo "=== SDK ==="
           xcrun --show-sdk-path --sdk macosx
+          echo "=== Project targets ==="
+          xcodebuild -project SourceDesk.xcodeproj -list
+          echo "=== Scheme ==="
+          xcodebuild -project SourceDesk.xcodeproj -scheme SourceDesk -showBuildSettings -configuration Release | grep -E '(PRODUCT_NAME|TARGET_NAME|CODE_SIGN|SWIFT_VERSION|MACOSX_DEPLOYMENT)' | head -20
 
       - name: Build (Release, universal, unsigned)
         run: |
@@ -35,7 +41,7 @@ jobs:
             CODE_SIGN_IDENTITY="" \
             build 2>&1 | tee build/xcodebuild.log
           echo "--- build tail ---"
-          tail -40 build/xcodebuild.log
+          tail -60 build/xcodebuild.log
           test -d "build/Build/Products/Release/SourceDesk.app"
 
       - name: Upload build log
